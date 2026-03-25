@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Wassim Toukebri, Electrical and Embedded Systems Engineer.">
+    <title>Wassim Toukebri | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="light-mode">
+    <!-- Animated background blobs -->
+    <div class="blob-bg"></div>
+    <div class="blob-bg blob-2"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Wassim.<span>Toukebri</span></a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <!-- Moon icon for light mode -->
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                    <!-- Sun icon for dark mode -->
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m6.34 17.66-1.41 1.41"></path>
+                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                </button>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section fade-in">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="tagline">Hello, I'm</p>
+                    <h1 class="hero-title">Wassim Toukebri</h1>
+                    <h2 class="hero-subtitle">Electrical Engineering Student</h2>
+                    <p class="hero-description">
+                        Specializing in Advanced Reconfigurable and Real-Time Microelectronic Systems. Passionate about
+                        FPGA design, AI, embedded systems, and IoT solutions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section slide-up">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-card glass">
+                        <h3>Core Technical Skills</h3>
+                        <div class="skills-container mb-4">
+                            <strong>Embedded & Electronics:</strong>
+                            <span class="skill-tag">ESP32</span>
+                            <span class="skill-tag">STM32</span>
+                            <span class="skill-tag">Raspberry Pi</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">UART/SPI/I2C</span>
+                            <span class="skill-tag">LoRa (SX1278)</span>
+                            <span class="skill-tag">PCB Design</span>
+                        </div>
+                        <div class="skills-container mb-4 mt-3">
+                            <strong>Software & Systems:</strong>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">ROS1/ROS2</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                        <div class="skills-container mt-3">
+                            <strong>IoT & Networking:</strong>
+                            <span class="skill-tag">MQTT</span>
+                            <span class="skill-tag">Wi-Fi</span>
+                        </div>
+                    </div>
+                    <div class="about-card glass">
+                        <h3>Education</h3>
+                        <div class="education-item">
+                            <h4>Engineering Degree in Electrical Engineering</h4>
+                            <p>National Engineering School of Tunis (ENIT)</p>
+                            <span class="date">2025 - Present</span>
+                        </div>
+                        <div class="education-item mt-4">
+                            <h4>Preparatory Studies</h4>
+                            <p>Faculty of Sciences of Monastir (FSM)</p>
+                            <span class="date">2023 - 2025</span>
+                        </div>
+                        <div class="education-item mt-4">
+                            <h4>High School</h4>
+                            <p>Pioneer High School Monastir</p>
+                            <span class="date">2018 - 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section slide-up">
+            <div class="container">
+                <h2 class="section-title">Technical Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card glass hover-effect">
+                        <div class="project-content">
+                            <h3 class="project-title">Autonomous Self-Driving Robot</h3>
+                            <p class="project-desc">Designed an autonomous mobile robot integrating Raspberry Pi 5,
+                                STM32, and ESP32. Implemented real-time object detection and navigation using YOLO with
+                                multi-layer communication ensuring low-latency data exchange.</p>
+                            <div class="project-tags">
+                                <span>Edge AI</span><span>Computer Vision</span><span>ROS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass hover-effect">
+                        <div class="project-content">
+                            <h3 class="project-title">ESP32 Smart Control Systems</h3>
+                            <p class="project-desc">Developed multiple embedded applications using ESP32 with Wi-Fi
+                                connectivity, implementing real-time control via relays and sensor inputs with custom
+                                web-based tracking interfaces.</p>
+                            <div class="project-tags">
+                                <span>ESP32</span><span>Wi-Fi</span><span>Sensors</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass hover-effect">
+                        <div class="project-content">
+                            <h3 class="project-title">Raspberry Pi NAS & Remote Access</h3>
+                            <p class="project-desc">Configured a secure Network Attached Storage (NAS) system using
+                                Samba on Linux. Managed disk formatting and enabled secure remote file access across
+                                multiple devices.</p>
+                            <div class="project-tags">
+                                <span>Raspberry Pi</span><span>Linux</span><span>Networking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass hover-effect">
+                        <div class="project-content">
+                            <h3 class="project-title">Industrial Water Monitoring (IoT + LoRa)</h3>
+                            <p class="project-desc">Designed a distributed system using ESP32 nodes and LoRa (SX1278)
+                                communication across departments for leak detection and predictive monitoring
+                                strategies, complete with RTC timestamped logging.</p>
+                            <div class="project-tags">
+                                <span>IoT</span><span>LoRa</span><span>ESP32</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass hover-effect">
+                        <div class="project-content">
+                            <h3 class="project-title">PCB DC Motor Speed Control</h3>
+                            <p class="project-desc">Designed and simulated a closed-loop motor control circuit using
+                                Eagle PCB and PSpice, incorporating voltage regulation, PWM generation, and precision
+                                feedback control.</p>
+                            <div class="project-tags">
+                                <span>PCB Design</span><span>Control Theory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section slide-up">
+            <div class="container">
+                <div class="contact-card glass">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p>I am always open to discussing advanced electronics, embedded systems, and innovative engineering
+                        opportunities.</p>
+
+                    <div class="contact-info mt-4" style="text-align: left; display: inline-block;">
+                        <p><i class="fas fa-envelope mr-2"></i> wassim.toukebri@etudiant-enit.utm.tn</p>
+                        <p><i class="fas fa-phone mr-2"></i> +216 92 138 017</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> DenDen, Mannouba</p>
+                    </div>
+
+                    <div class="social-links mt-4">
+                        <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank"
+                            class="btn btn-secondary"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a>
+                        <a href="mailto:wassim.toukebri@etudiant-enit.utm.tn" class="btn btn-primary"><i
+                                class="fas fa-paper-plane mr-2"></i> Say Hello</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Designed and developed by Wassim Toukebri. © 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
