@@ -206,21 +206,54 @@
         <section id="contact" class="contact-section slide-up">
             <div class="container">
                 <div class="contact-card glass">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p>I am always open to discussing advanced electronics, embedded systems, and innovative engineering
-                        opportunities.</p>
+                    <div class="contact-grid">
+                        <div class="contact-info-side">
+                            <h2 class="section-title">Get In Touch</h2>
+                            <p>I am always open to discussing advanced electronics, embedded systems, and innovative engineering
+                                opportunities.</p>
 
-                    <div class="contact-info mt-4" style="text-align: left; display: inline-block;">
-                        <p><i class="fas fa-envelope mr-2"></i> wassim.toukebri@etudiant-enit.utm.tn</p>
-                        <p><i class="fas fa-phone mr-2"></i> +216 92 138 017</p>
-                        <p><i class="fas fa-map-marker-alt mr-2"></i> DenDen, Mannouba</p>
-                    </div>
+                            <div class="contact-info mt-4">
+                                <p><i class="fas fa-envelope mr-2"></i> wassim.toukebri@etudiant-enit.utm.tn</p>
+                                <p><i class="fas fa-phone mr-2"></i> +216 92 138 017</p>
+                                <p><i class="fas fa-map-marker-alt mr-2"></i> DenDen, Mannouba</p>
+                            </div>
 
-                    <div class="social-links mt-4">
-                        <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank"
-                            class="btn btn-secondary"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a>
-                        <a href="mailto:wassim.toukebri@etudiant-enit.utm.tn" class="btn btn-primary"><i
-                                class="fas fa-paper-plane mr-2"></i> Say Hello</a>
+                            <div class="social-links mt-4">
+                                <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank"
+                                    class="btn btn-secondary"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-side">
+                            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" id="firstname" name="firstname" placeholder="John" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname">Last Name</label>
+                                        <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="_replyto" placeholder="john.doe@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary submit-btn">
+                                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                                </button>
+                                <div id="form-status" class="form-status"></div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
