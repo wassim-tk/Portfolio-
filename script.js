@@ -141,31 +141,38 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.className = 'form-status';
 
             const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
             
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
-                    body: formData,
+                    body: JSON.stringify(data),
                     headers: {
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
                 });
 
+                const result = await response.json();
+                
                 if (response.ok) {
                     formStatus.textContent = 'Thanks! Your message has been sent successfully.';
                     formStatus.classList.add('success');
                     contactForm.reset();
                 } else {
-                    const data = await response.json();
-                    if (data && data.errors) {
-                        formStatus.textContent = data.errors.map(error => error.message).join(', ');
+                    if (result && result.errors) {
+                        formStatus.textContent = result.errors.map(error => error.message).join(', ');
+                    } else if (result && result.error) {
+                        formStatus.textContent = result.error;
                     } else {
                         formStatus.textContent = 'Oops! There was a problem submitting your form.';
                     }
                     formStatus.classList.add('error');
+                    console.error('Formspree error details:', result);
                 }
             } catch (error) {
-                formStatus.textContent = 'Oops! There was a problem submitting your form. Please check your connection.';
+                console.error('Submission error:', error);
+                formStatus.textContent = 'Connection error. Please check your internet or try again later.';
                 formStatus.classList.add('error');
             } finally {
                 submitBtn.disabled = false;
