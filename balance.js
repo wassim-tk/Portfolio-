@@ -399,7 +399,7 @@
 
     resize();
     readColors();
-    window.addEventListener('resize', () => { resize(); });
+    window.addEventListener('resize', () => { resize(); drawScene(); drawGraph(); });
     new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
     if ('IntersectionObserver' in window) {
