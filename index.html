@@ -190,6 +190,8 @@
                                 <li class="tag">UART/SPI/I2C</li>
                                 <li class="tag">LoRa (SX1278)</li>
                                 <li class="tag">PCB Design</li>
+                                <li class="tag">FreeRTOS</li>
+                                <li class="tag">SolidWorks</li>
                             </ul>
                         </div>
 
@@ -200,7 +202,18 @@
                                 <li class="tag">Python</li>
                                 <li class="tag">Linux</li>
                                 <li class="tag">ROS1/ROS2</li>
+                                <li class="tag">Nav2 / SLAM</li>
+                                <li class="tag">micro-ROS</li>
+                                <li class="tag">Gazebo</li>
                                 <li class="tag">Git</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-group">
+                            <h4 class="skill-label">AI &amp; Vision</h4>
+                            <ul class="tag-list">
+                                <li class="tag">YOLO</li>
+                                <li class="tag">OpenCV</li>
                             </ul>
                         </div>
 
@@ -209,6 +222,7 @@
                             <ul class="tag-list">
                                 <li class="tag">MQTT</li>
                                 <li class="tag">Wi-Fi</li>
+                                <li class="tag">Node-RED</li>
                             </ul>
                         </div>
                     </div>
@@ -290,10 +304,10 @@
                         <div class="project-content">
                             <span class="project-index mono">02</span>
                             <h3 class="project-title">OPTIMUS · Smart Autonomous Vehicle</h3>
-                            <p class="project-meta">Team OPTIMUS · IEEE ENIT TRSYP 2.0 challenge</p>
-                            <p class="project-desc">Hybrid autonomous/teleoperated robot. An STM32F407 runs FreeRTOS tasks for PID motor control with encoders, ultrasonic ranging, safety and telemetry; a Raspberry Pi handles OpenCV perception and AI collision-risk prediction; an ESP32 links to a Node-RED dashboard over MQTT. Chassis designed in SolidWorks.</p>
+                            <p class="project-meta">IEEE ENIT TRSYP 2.0 challenge · Team OPTIMUS · built full hardware &amp; software stack</p>
+                            <p class="project-desc">Hybrid autonomous/teleoperated robot. An STM32F407 runs FreeRTOS tasks for PID motor control with encoders, ultrasonic ranging, safety and telemetry; a Raspberry Pi runs YOLO object detection with OpenCV for perception and collision-risk prediction; an ESP32 links to a Node-RED dashboard over MQTT. Chassis designed in SolidWorks.</p>
                             <ul class="tag-list small">
-                                <li class="tag">STM32</li><li class="tag">FreeRTOS</li><li class="tag">PID</li><li class="tag">Raspberry Pi</li><li class="tag">MQTT</li><li class="tag">Node-RED</li>
+                                <li class="tag">STM32</li><li class="tag">FreeRTOS</li><li class="tag">PID</li><li class="tag">YOLO</li><li class="tag">MQTT</li><li class="tag">Node-RED</li>
                             </ul>
                             <div class="project-links">
                                 <a href="https://github.com/wassim-tk/OPTIMUS" target="_blank" rel="noopener" class="project-link mono">
@@ -316,7 +330,7 @@
                         <div class="project-content">
                             <span class="project-index mono">03</span>
                             <h3 class="project-title">RoboCup Maze-Solving Robot</h3>
-                            <p class="project-meta">ROS 2 Jazzy · micro-ROS</p>
+                            <p class="project-meta">ROS 2 Jazzy · micro-ROS · built full hardware &amp; software stack</p>
                             <p class="project-desc">Autonomous maze-solving and target-detection robot. A Raspberry Pi 5 runs DFS maze exploration with an LD19 LiDAR and a dual-camera vision pipeline (a CNN implemented from scratch in NumPy plus ring-colour analysis); it commands an ESP32 over micro-ROS, which drives the motors with BNO055 IMU feedback and PID control.</p>
                             <ul class="tag-list small">
                                 <li class="tag">ROS 2</li><li class="tag">micro-ROS</li><li class="tag">ESP32</li><li class="tag">LiDAR</li><li class="tag">OpenCV</li><li class="tag">State machine</li>
