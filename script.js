@@ -1,183 +1,132 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Theme Toggling Logic
+    const root = document.documentElement;
+
+    // 1. Theme toggle (initial theme is set inline in <head> to avoid a flash)
     const themeBtn = document.getElementById('theme-toggle');
-    const moonIcon = document.getElementById('moon-icon');
-    const sunIcon = document.getElementById('sun-icon');
-    
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Set initial theme
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.replace('light-mode', 'dark-mode');
-        document.body.classList.add('dark-mode');
-        document.body.classList.remove('light-mode');
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'block';
-    } else {
-        document.body.classList.add('light-mode');
-        document.body.classList.remove('dark-mode');
-    }
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
 
-    themeBtn.addEventListener('click', () => {
-        const isDark = document.body.classList.contains('dark-mode');
-        
-        if (isDark) {
-            document.body.classList.replace('dark-mode', 'light-mode');
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.body.classList.replace('light-mode', 'dark-mode');
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-
-    // 2. Navbar Scrolling Effect
-    const navbar = document.querySelector('.navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // 3. Smooth Scrolling for Navigation Links & Close Mobile Menu
-    const navLinks = document.querySelector('.nav-links');
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    // Reset hamburger icon
-                    const spans = mobileBtn.querySelectorAll('span');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-
-                // Scroll to target
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // 4. Scroll Animations (Intersection Observer)
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
+    const applyTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0b0f0e' : '#f6f8f6');
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target);
-            }
+    applyTheme(root.getAttribute('data-theme') || 'dark');
+
+    themeBtn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ }
+    });
+
+    // 2. Navbar background on scroll
+    const navbar = document.querySelector('.navbar');
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // 3. Mobile menu
+    const navLinks = document.getElementById('nav-links');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+
+    const setMenu = (open) => {
+        navLinks.classList.toggle('active', open);
+        navbar.classList.toggle('menu-open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    menuBtn.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            setMenu(false);
+            menuBtn.focus();
+        }
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) setMenu(false);
+    });
+
+    // 4. Highlight the nav link of the section in view
+    const links = [...document.querySelectorAll('.nav-link')];
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(s => spy.observe(s));
+
+        // 5. Reveal on scroll
+        const revealer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+            el.style.transitionDelay = (el.closest('.hero-section') ? i * 80 : 0) + 'ms';
+            revealer.observe(el);
         });
-    }, observerOptions);
+    } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('appear'));
+    }
 
-    const animatedElements = document.querySelectorAll('.fade-in, .slide-up');
-    animatedElements.forEach(el => {
-        // Optimization: don't animate if already in viewport on load
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight) {
-            el.classList.add('appear');
-        } else {
-            observer.observe(el);
-        }
-    });
-
-    // 5. Mobile Menu Toggle with Icon Animation
-    mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        const spans = mobileBtn.querySelectorAll('span');
-        const isActive = navLinks.classList.contains('active');
-        
-        if (isActive) {
-            spans[0].style.transform = 'translateY(8px) rotate(45deg)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-
-    // 6. Contact Form Submission
+    // 6. Contact form (Formspree)
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
         const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalBtn = submitBtn.innerHTML;
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Basic UI feedback
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-            formStatus.style.display = 'none';
-            formStatus.className = 'form-status';
 
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Sending…';
+            formStatus.className = 'form-status';
+            formStatus.textContent = '';
+
+            const data = Object.fromEntries(new FormData(contactForm).entries());
+
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
                 });
+                const result = await response.json().catch(() => null);
 
-                const result = await response.json();
-                
                 if (response.ok) {
                     formStatus.textContent = 'Thanks! Your message has been sent successfully.';
                     formStatus.classList.add('success');
                     contactForm.reset();
                 } else {
                     if (result && result.errors) {
-                        formStatus.textContent = result.errors.map(error => error.message).join(', ');
+                        formStatus.textContent = result.errors.map(err => err.message).join(', ');
                     } else if (result && result.error) {
                         formStatus.textContent = result.error;
                     } else {
                         formStatus.textContent = 'Oops! There was a problem submitting your form.';
                     }
                     formStatus.classList.add('error');
-                    console.error('Formspree error details:', result);
                 }
             } catch (error) {
-                console.error('Submission error:', error);
                 formStatus.textContent = 'Connection error. Please check your internet or try again later.';
                 formStatus.classList.add('error');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Send Message';
-                formStatus.style.display = 'block';
+                submitBtn.innerHTML = originalBtn;
             }
         });
     }

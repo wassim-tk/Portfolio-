@@ -4,272 +4,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Wassim Toukebri, Electrical and Embedded Systems Engineer.">
-    <title>Wassim Toukebri | Portfolio</title>
-    <!-- Google Fonts -->
+    <title>Wassim Toukebri | Embedded Systems & FPGA</title>
+    <meta name="description" content="Portfolio of Wassim Toukebri, Electrical Engineering student at ENIT specializing in embedded systems, FPGA, IoT and real-time microelectronic systems.">
+    <meta name="theme-color" content="#0b0f0e">
+    <link rel="canonical" href="https://wassimtoukebri.me/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wassimtoukebri.me/">
+    <meta property="og:title" content="Wassim Toukebri | Embedded Systems & FPGA">
+    <meta property="og:description" content="Electrical Engineering student at ENIT building embedded, IoT and real-time systems.">
+    <meta property="og:image" content="https://wassimtoukebri.me/wass.PNG">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Apply saved / system theme before first paint (prevents flash) -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) { }
+            if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.classList.add('js');
+        })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="light-mode">
-    <!-- Animated background blobs -->
-    <div class="blob-bg"></div>
-    <div class="blob-bg blob-2"></div>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Decorative circuit background -->
+    <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Wassim.<span>Toukebri</span></a>
-            <nav class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                    <!-- Moon icon for light mode -->
-                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            <a href="#top" class="logo" aria-label="Wassim Toukebri, back to top">
+                <span class="logo-mark">WT</span>
+                <span class="logo-text">wassim<span>.toukebri</span></span>
+            </a>
+            <nav class="nav-links" id="nav-links" aria-label="Main">
+                <a href="#about" class="nav-link"><span class="nav-num">01</span>About</a>
+                <a href="#projects" class="nav-link"><span class="nav-num">02</span>Projects</a>
+                <a href="#contact" class="nav-link"><span class="nav-num">03</span>Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light mode">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2M12 20v2m-7.07-2.93 1.41-1.41M17.66 6.34l1.41-1.41M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41" />
                     </svg>
-                    <!-- Sun icon for dark mode -->
-                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="display: none;">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path d="M12 2v2"></path>
-                        <path d="M12 20v2"></path>
-                        <path d="m4.93 4.93 1.41 1.41"></path>
-                        <path d="m17.66 17.66 1.41 1.41"></path>
-                        <path d="M2 12h2"></path>
-                        <path d="M20 12h2"></path>
-                        <path d="m6.34 17.66-1.41 1.41"></path>
-                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                     </svg>
                 </button>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <button class="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="nav-links">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section fade-in">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <p class="tagline">Hello, I'm</p>
-                        <h1 class="hero-title">Wassim Toukebri</h1>
-                        <h2 class="hero-subtitle">Electrical Engineering Student</h2>
-                        <p class="hero-description">
-                            Specializing in Advanced Reconfigurable and Real-Time Microelectronic Systems. Passionate about
-                            FPGA design, AI, embedded systems, and IoT solutions.
-                        </p>
-                        <div class="hero-cta">
-                            <a href="#projects" class="btn btn-primary">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                        </div>
+    <main id="main">
+        <!-- Hero -->
+        <section id="top" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text reveal">
+                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Electrical Engineering Student @ ENIT</p>
+                    <h1 class="hero-title">Wassim<br><span class="accent">Toukebri</span></h1>
+                    <p class="hero-terminal" aria-label="Focus areas: FPGA, Embedded, IoT, Edge AI">
+                        <span class="prompt">&gt;</span> FPGA · Embedded · IoT · Edge&nbsp;AI<span class="cursor" aria-hidden="true"></span>
+                    </p>
+                    <p class="hero-description">
+                        Specializing in Advanced Reconfigurable and Real-Time Microelectronic Systems. Passionate about
+                        FPGA design, AI, embedded systems, and IoT solutions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                        <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank" rel="noopener"
+                            class="icon-btn icon-btn-lg" aria-label="LinkedIn profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+                            </svg>
+                        </a>
                     </div>
-                    <div class="hero-image">
-                        <div class="image-wrapper">
-                            <img src="wass.PNG" alt="Wassim Toukebri Portrait">
-                        </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="photo-frame">
+                        <img src="wass.PNG" alt="Portrait of Wassim Toukebri" width="432" height="239">
+                        <span class="corner tl" aria-hidden="true"></span>
+                        <span class="corner tr" aria-hidden="true"></span>
+                        <span class="corner bl" aria-hidden="true"></span>
+                        <span class="corner br" aria-hidden="true"></span>
+                    </div>
+                    <div class="photo-caption mono" aria-hidden="true">
+                        <span>U1 · WT-2026</span><span>ENIT / TUNIS</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Highlights strip -->
+            <div class="container">
+                <ul class="stats reveal" aria-label="Highlights">
+                    <li><strong>5</strong><span>technical projects</span></li>
+                    <li><strong>4</strong><span>MCU / SBC platforms</span></li>
+                    <li><strong>3</strong><span>IoT protocols · LoRa · MQTT · Wi-Fi</span></li>
+                    <li><strong>ENIT</strong><span>Electrical Eng. · 2025 –</span></li>
+                </ul>
+            </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about-section slide-up">
+        <!-- About -->
+        <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <header class="section-head reveal">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">About Me</h2>
+                    <span class="section-rule" aria-hidden="true"></span>
+                </header>
+
                 <div class="about-grid">
-                    <div class="about-card glass">
-                        <h3>Core Technical Skills</h3>
-                        <div class="skills-container mb-4">
-                            <strong>Embedded & Electronics:</strong>
-                            <span class="skill-tag">ESP32</span>
-                            <span class="skill-tag">STM32</span>
-                            <span class="skill-tag">Raspberry Pi</span>
-                            <span class="skill-tag">Arduino</span>
-                            <span class="skill-tag">UART/SPI/I2C</span>
-                            <span class="skill-tag">LoRa (SX1278)</span>
-                            <span class="skill-tag">PCB Design</span>
+                    <div class="card reveal">
+                        <h3 class="card-title">Core Technical Skills</h3>
+
+                        <div class="skill-group">
+                            <h4 class="skill-label">Embedded &amp; Electronics</h4>
+                            <ul class="tag-list">
+                                <li class="tag">ESP32</li>
+                                <li class="tag">STM32</li>
+                                <li class="tag">Raspberry Pi</li>
+                                <li class="tag">Arduino</li>
+                                <li class="tag">UART/SPI/I2C</li>
+                                <li class="tag">LoRa (SX1278)</li>
+                                <li class="tag">PCB Design</li>
+                            </ul>
                         </div>
-                        <div class="skills-container mb-4 mt-3">
-                            <strong>Software & Systems:</strong>
-                            <span class="skill-tag">C/C++</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">ROS1/ROS2</span>
-                            <span class="skill-tag">Git</span>
+
+                        <div class="skill-group">
+                            <h4 class="skill-label">Software &amp; Systems</h4>
+                            <ul class="tag-list">
+                                <li class="tag">C/C++</li>
+                                <li class="tag">Python</li>
+                                <li class="tag">Linux</li>
+                                <li class="tag">ROS1/ROS2</li>
+                                <li class="tag">Git</li>
+                            </ul>
                         </div>
-                        <div class="skills-container mt-3">
-                            <strong>IoT & Networking:</strong>
-                            <span class="skill-tag">MQTT</span>
-                            <span class="skill-tag">Wi-Fi</span>
+
+                        <div class="skill-group">
+                            <h4 class="skill-label">IoT &amp; Networking</h4>
+                            <ul class="tag-list">
+                                <li class="tag">MQTT</li>
+                                <li class="tag">Wi-Fi</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="about-card glass">
-                        <h3>Education</h3>
-                        <div class="education-item">
-                            <h4>Engineering Degree in Electrical Engineering</h4>
-                            <p>National Engineering School of Tunis (ENIT)</p>
-                            <span class="date">2025 - Present</span>
-                        </div>
-                        <div class="education-item mt-4">
-                            <h4>Preparatory Studies</h4>
-                            <p>Faculty of Sciences of Monastir (FSM)</p>
-                            <span class="date">2023 - 2025</span>
-                        </div>
-                        <div class="education-item mt-4">
-                            <h4>High School</h4>
-                            <p>Pioneer High School Monastir</p>
-                            <span class="date">2018 - 2023</span>
-                        </div>
+
+                    <div class="card reveal">
+                        <h3 class="card-title">Education</h3>
+                        <ol class="timeline">
+                            <li class="timeline-item current">
+                                <span class="date">2025 – Present</span>
+                                <h4>Engineering Degree in Electrical Engineering</h4>
+                                <p>National Engineering School of Tunis (ENIT)</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="date">2023 – 2025</span>
+                                <h4>Preparatory Studies</h4>
+                                <p>Faculty of Sciences of Monastir (FSM)</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="date">2018 – 2023</span>
+                                <h4>High School</h4>
+                                <p>Pioneer High School Monastir</p>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section slide-up">
+        <!-- Projects -->
+        <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Technical Projects</h2>
+                <header class="section-head reveal">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Technical Projects</h2>
+                    <span class="section-rule" aria-hidden="true"></span>
+                </header>
+
                 <div class="projects-grid">
-                    <div class="project-card glass hover-effect">
+                    <!-- To use a real photo: replace the <svg> inside .project-media with
+                         <img src="images/robot.jpg" alt="..."> -->
+                    <article class="project-card featured reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="7" width="16" height="11" rx="2" />
+                                <path d="M12 7V4m-3 0h6M8 12h.01M16 12h.01M9 15h6M2 11v4m20-4v4" />
+                            </svg>
+                            <span class="media-label mono">fig.01 · rpi5 ⇄ stm32 ⇄ esp32</span>
+                        </div>
                         <div class="project-content">
+                            <span class="project-index mono">01 · Featured</span>
                             <h3 class="project-title">Autonomous Self-Driving Robot</h3>
                             <p class="project-desc">Designed an autonomous mobile robot integrating Raspberry Pi 5,
                                 STM32, and ESP32. Implemented real-time object detection and navigation using YOLO with
                                 multi-layer communication ensuring low-latency data exchange.</p>
-                            <div class="project-tags">
-                                <span>Edge AI</span><span>Computer Vision</span><span>ROS</span>
-                            </div>
+                            <ul class="tag-list small">
+                                <li class="tag">Edge AI</li><li class="tag">Computer Vision</li><li class="tag">ROS</li>
+                            </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card glass hover-effect">
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+                            </svg>
+                            <span class="media-label mono">fig.02 · esp32 + relays</span>
+                        </div>
                         <div class="project-content">
+                            <span class="project-index mono">02</span>
                             <h3 class="project-title">ESP32 Smart Control Systems</h3>
                             <p class="project-desc">Developed multiple embedded applications using ESP32 with Wi-Fi
                                 connectivity, implementing real-time control via relays and sensor inputs with custom
                                 web-based tracking interfaces.</p>
-                            <div class="project-tags">
-                                <span>ESP32</span><span>Wi-Fi</span><span>Sensors</span>
-                            </div>
+                            <ul class="tag-list small">
+                                <li class="tag">ESP32</li><li class="tag">Wi-Fi</li><li class="tag">Sensors</li>
+                            </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card glass hover-effect">
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="7" rx="2" />
+                                <rect x="3" y="14" width="18" height="7" rx="2" />
+                                <path d="M7 6.5h.01M7 17.5h.01" />
+                            </svg>
+                            <span class="media-label mono">fig.03 · samba / linux</span>
+                        </div>
                         <div class="project-content">
-                            <h3 class="project-title">Raspberry Pi NAS & Remote Access</h3>
+                            <span class="project-index mono">03</span>
+                            <h3 class="project-title">Raspberry Pi NAS &amp; Remote Access</h3>
                             <p class="project-desc">Configured a secure Network Attached Storage (NAS) system using
                                 Samba on Linux. Managed disk formatting and enabled secure remote file access across
                                 multiple devices.</p>
-                            <div class="project-tags">
-                                <span>Raspberry Pi</span><span>Linux</span><span>Networking</span>
-                            </div>
+                            <ul class="tag-list small">
+                                <li class="tag">Raspberry Pi</li><li class="tag">Linux</li><li class="tag">Networking</li>
+                            </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card glass hover-effect">
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2.7S6 9.5 6 14a6 6 0 0 0 12 0c0-4.5-6-11.3-6-11.3Z" />
+                                <path d="M9.5 15.5a2.5 2.5 0 0 0 2.5 2" />
+                            </svg>
+                            <span class="media-label mono">fig.04 · lora sx1278 mesh</span>
+                        </div>
                         <div class="project-content">
+                            <span class="project-index mono">04</span>
                             <h3 class="project-title">Industrial Water Monitoring (IoT + LoRa)</h3>
                             <p class="project-desc">Designed a distributed system using ESP32 nodes and LoRa (SX1278)
                                 communication across departments for leak detection and predictive monitoring
                                 strategies, complete with RTC timestamped logging.</p>
-                            <div class="project-tags">
-                                <span>IoT</span><span>LoRa</span><span>ESP32</span>
-                            </div>
+                            <ul class="tag-list small">
+                                <li class="tag">IoT</li><li class="tag">LoRa</li><li class="tag">ESP32</li>
+                            </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card glass hover-effect">
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="6" y="6" width="12" height="12" rx="1.5" />
+                                <rect x="9.5" y="9.5" width="5" height="5" />
+                                <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4M2 15h4m12-6h4m-4 6h4" />
+                            </svg>
+                            <span class="media-label mono">fig.05 · eagle + pspice</span>
+                        </div>
                         <div class="project-content">
+                            <span class="project-index mono">05</span>
                             <h3 class="project-title">PCB DC Motor Speed Control</h3>
                             <p class="project-desc">Designed and simulated a closed-loop motor control circuit using
                                 Eagle PCB and PSpice, incorporating voltage regulation, PWM generation, and precision
                                 feedback control.</p>
-                            <div class="project-tags">
-                                <span>PCB Design</span><span>Control Theory</span>
-                            </div>
+                            <ul class="tag-list small">
+                                <li class="tag">PCB Design</li><li class="tag">Control Theory</li>
+                            </ul>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section slide-up">
+        <!-- Contact -->
+        <section id="contact" class="section">
             <div class="container">
-                <div class="contact-card glass">
-                    <div class="contact-grid">
-                        <div class="contact-info-side">
-                            <h2 class="section-title">Get In Touch</h2>
-                            <p>I am always open to discussing advanced electronics, embedded systems, and innovative engineering
-                                opportunities.</p>
+                <header class="section-head reveal">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <span class="section-rule" aria-hidden="true"></span>
+                </header>
 
-                            <div class="contact-info mt-4">
-                                <p><i class="fas fa-envelope mr-2"></i> wassim.toukebri@etudiant-enit.utm.tn</p>
-                                <p><i class="fas fa-phone mr-2"></i> +216 92 138 017</p>
-                                <p><i class="fas fa-map-marker-alt mr-2"></i> DenDen, Mannouba</p>
+                <div class="contact-grid">
+                    <div class="contact-info-side reveal">
+                        <p class="contact-lead">I am always open to discussing advanced electronics, embedded systems,
+                            and innovative engineering opportunities.</p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                                        <path d="m22 7-10 6L2 7" />
+                                    </svg>
+                                </span>
+                                <a href="mailto:wassim.toukebri@etudiant-enit.utm.tn">wassim.toukebri@etudiant-enit.utm.tn</a>
+                            </li>
+                            <li>
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" />
+                                    </svg>
+                                </span>
+                                <a href="tel:+21692138017">+216 92 138 017</a>
+                            </li>
+                            <li>
+                                <span class="contact-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                </span>
+                                <span>DenDen, Mannouba</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank" rel="noopener"
+                            class="btn btn-ghost">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <div class="card contact-form-side reveal">
+                        <form id="contact-form" action="https://formspree.io/f/xgopevpy" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" id="firstname" name="firstname" autocomplete="given-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" id="lastname" name="lastname" autocomplete="family-name" required>
+                                </div>
                             </div>
-
-                            <div class="social-links mt-4">
-                                <a href="https://www.linkedin.com/in/wassim-toukebri" target="_blank"
-                                    class="btn btn-secondary"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com"
+                                    autocomplete="email" required>
                             </div>
-                        </div>
-
-                        <div class="contact-form-side">
-                            <form id="contact-form" action="https://formspree.io/f/xgopevpy" method="POST">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="firstname">First Name</label>
-                                        <input type="text" id="firstname" name="firstname" placeholder=" " required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastname">Last Name</label>
-                                        <input type="text" id="lastname" name="lastname" placeholder=" " required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" placeholder="@xxxx.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subject">Subject</label>
-                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary submit-btn">
-                                    <i class="fas fa-paper-plane mr-2"></i> Send Message
-                                </button>
-                                <div id="form-status" class="form-status"></div>
-                            </form>
-                        </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Project inquiry" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="How can I help you?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-label">Send Message</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" />
+                                </svg>
+                            </button>
+                            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
+    <footer class="footer">
+        <div class="container footer-inner">
             <p>Designed and developed by Wassim Toukebri. © 2026. All rights reserved.</p>
+            <a href="#top" class="mono back-top">↑ back to top</a>
         </div>
     </footer>
 

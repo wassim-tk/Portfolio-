@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="6" y="6" width="52" height="52" rx="10" fill="#0b0f0e" stroke="#34d399" stroke-width="3"/>
+  <g stroke="#34d399" stroke-width="3" stroke-linecap="round">
+    <path d="M20 0v6M32 0v6M44 0v6M20 58v6M32 58v6M44 58v6M0 20h6M0 32h6M0 44h6M58 20h6M58 32h6M58 44h6"/>
+  </g>
+  <text x="32" y="41" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" fill="#e6edea">WT</text>
+</svg>
