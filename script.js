@@ -81,7 +81,32 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('appear'));
     }
 
-    // 6. Contact form (Formspree)
+    // 6. Project image galleries
+    document.querySelectorAll('[data-gallery]').forEach(gallery => {
+        const main = gallery.querySelector('.gallery-main');
+        const caption = gallery.querySelector('.gallery-caption');
+        const prefix = caption ? caption.textContent.split('·')[0] + '· ' : '';
+        gallery.querySelectorAll('.thumb').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) return;
+                gallery.querySelectorAll('.thumb').forEach(t => {
+                    t.classList.toggle('active', t === btn);
+                    t.setAttribute('aria-pressed', String(t === btn));
+                });
+                main.classList.add('swapping');
+                setTimeout(() => {
+                    main.src = btn.dataset.src;
+                    main.alt = btn.dataset.alt;
+                    main.style.objectPosition = btn.dataset.pos || '50% 50%';
+                    main.classList.toggle('contain', btn.dataset.fit === 'contain');
+                    if (caption) caption.textContent = prefix + btn.dataset.caption;
+                    main.classList.remove('swapping');
+                }, 180);
+            });
+        });
+    });
+
+    // 7. Contact form (Formspree)
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 

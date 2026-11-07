@@ -34,7 +34,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=11">
 </head>
 
 <body>
@@ -190,6 +190,8 @@
                                 <li class="tag">UART/SPI/I2C</li>
                                 <li class="tag">LoRa (SX1278)</li>
                                 <li class="tag">PCB Design</li>
+                                <li class="tag">EAGLE</li>
+                                <li class="tag">PSpice</li>
                                 <li class="tag">FreeRTOS</li>
                                 <li class="tag">IMU / Sensor fusion</li>
                                 <li class="tag">SolidWorks</li>
@@ -294,6 +296,57 @@
                         </div>
                     </article>
 
+                    <article class="project-card featured reverse reveal">
+                        <div class="project-media has-img gallery" data-gallery>
+                            <img class="gallery-main" src="images/pcb-final.jpg" alt="Finished board under test: oscilloscope showing the 555 ramp, motor and transformer connected" width="900" height="1200" loading="lazy" style="object-position: 50% 58%">
+                            <span class="media-label mono gallery-caption">fig.02 · finished board · bench test</span>
+                            <div class="gallery-thumbs">
+                                <button type="button" class="thumb active" data-src="images/pcb-final.jpg" data-alt="Finished board under test: oscilloscope showing the 555 ramp, motor and transformer connected" data-caption="finished board · bench test" data-pos="50% 58%" aria-label="Show finished board · bench test" aria-pressed="true">
+                                    <img src="images/pcb-final.jpg" alt="" loading="lazy">
+                                </button>
+                                <button type="button" class="thumb" data-src="images/pcb-layout.jpg" data-alt="EAGLE PCB layout of the 120 by 160 mm board with sized power tracks" data-caption="eagle layout · 120×160 mm" data-pos="50% 50%" aria-label="Show eagle layout · 120×160 mm" aria-pressed="false">
+                                    <img src="images/pcb-layout.jpg" alt="" loading="lazy">
+                                </button>
+                                <button type="button" class="thumb" data-src="images/pcb-soldering.jpg" data-alt="Soldering the through-hole components on the home-etched board" data-caption="soldering · home-etched board" data-pos="50% 50%" aria-label="Show soldering · home-etched board" aria-pressed="false">
+                                    <img src="images/pcb-soldering.jpg" alt="" loading="lazy">
+                                </button>
+                                <button type="button" class="thumb" data-src="images/pcb-pwm-sim.jpg" data-alt="PSpice simulation of the PWM signal generated from the ramp and setpoint" data-caption="pspice · pwm simulation" data-pos="50% 50%" data-fit="contain" aria-label="Show pspice · pwm simulation" aria-pressed="false">
+                                    <img src="images/pcb-pwm-sim.jpg" alt="" loading="lazy">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-index mono">02 · Featured</span>
+                            <h3 class="project-title">PCB DC Motor Speed Controller</h3>
+                            <p class="project-meta">ENIT · Électronique I mini-project · 2025/26 · designed, simulated, etched &amp; soldered by me</p>
+                            <p class="project-desc">A PWM speed controller for a DC motor, designed in EAGLE, validated block by block in
+                                PSpice and built as a home-etched PCB. An NE555 astable generates a ~7&nbsp;kHz ramp that an LM393
+                                compares with a µA741-conditioned setpoint, producing a PWM signal that drives an IRF530 MOSFET
+                                through BC547/BC557 drivers, with a freewheeling diode against inductive spikes. Start/stop and
+                                direction are latched by CD4027 JK flip-flops, with a DPDT relay reversing motor polarity, all
+                                powered by an on-board ±12&nbsp;V supply (7812/7912 + LM317).</p>
+                            <ul class="spec-list mono">
+                                <li><span>PWM</span>~7 kHz</li>
+                                <li><span>Switch</span>IRF530 · 100 V / 14 A</li>
+                                <li><span>Board</span>120 × 160 mm</li>
+                                <li><span>Tracks</span>IPC-sized, up to 2.8 mm</li>
+                            </ul>
+                            <ul class="tag-list small">
+                                <li class="tag">EAGLE</li><li class="tag">PSpice</li><li class="tag">PWM</li><li class="tag">Power MOSFET</li><li class="tag">Analog design</li><li class="tag">PCB fabrication</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/wassim-tk/PCB-DC-Motor-Speed-Control" target="_blank" rel="noopener" class="project-link mono">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></svg>
+                                    View code ↗
+                                </a>
+                                <a href="https://github.com/wassim-tk/PCB-DC-Motor-Speed-Control/blob/main/rapport_WASSIM_TOUKEBRI.pdf" target="_blank" rel="noopener" class="project-link mono">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></svg>
+                                    Full report (PDF, FR) ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
                     <article class="project-card reveal">
                         <div class="project-media" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -301,10 +354,10 @@
                                 <rect x="4" y="7" width="16" height="11" rx="2" />
                                 <path d="M12 7V4m-3 0h6M8 12h.01M16 12h.01M9 15h6M2 11v4m20-4v4" />
                             </svg>
-                            <span class="media-label mono">fig.02 · stm32 ⇄ rpi ⇄ esp32</span>
+                            <span class="media-label mono">fig.03 · stm32 ⇄ rpi ⇄ esp32</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">02</span>
+                            <span class="project-index mono">03</span>
                             <h3 class="project-title">OPTIMUS · Smart Autonomous Vehicle</h3>
                             <p class="project-meta">IEEE ENIT TRSYP 2.0 challenge · Team OPTIMUS · built full hardware &amp; software stack</p>
                             <p class="project-desc">Hybrid autonomous/teleoperated robot. An STM32F407 runs FreeRTOS tasks for PID motor control with encoders, ultrasonic ranging, safety and telemetry; a Raspberry Pi runs YOLO object detection with OpenCV for perception and collision-risk prediction; an ESP32 links to a Node-RED dashboard over MQTT. Chassis designed in SolidWorks.</p>
@@ -327,10 +380,10 @@
                                 <path d="M3 3h7v7H3zM14 14h7v7h-7z" />
                                 <path d="M10 6.5h4v11M6.5 10v4H14" />
                             </svg>
-                            <span class="media-label mono">fig.03 · ld19 lidar + dual cam</span>
+                            <span class="media-label mono">fig.04 · ld19 lidar + dual cam</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">03</span>
+                            <span class="project-index mono">04</span>
                             <h3 class="project-title">RoboCup Maze-Solving Robot</h3>
                             <p class="project-meta">ROS 2 Jazzy · micro-ROS · built full hardware &amp; software stack</p>
                             <p class="project-desc">Autonomous maze-solving and target-detection robot. A Raspberry Pi 5 runs DFS maze exploration with an LD19 LiDAR and a dual-camera vision pipeline (a CNN implemented from scratch in NumPy plus ring-colour analysis); it commands an ESP32 over micro-ROS, which drives the motors with BNO055 IMU feedback and PID control.</p>
@@ -349,11 +402,11 @@
                                 <circle cx="12" cy="18.5" r="3" />
                                 <path d="M3 21.5h18" />
                             </svg>
-                            <span class="media-label mono">fig.04 · esp32 + bno055 + tb6612fng</span>
+                            <span class="media-label mono">fig.05 · esp32 + bno055 + tb6612fng</span>
                             <span class="status-pill mono">In progress</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">04</span>
+                            <span class="project-index mono">05</span>
                             <h3 class="project-title">Self-Balancing Robot</h3>
                             <p class="project-meta">Personal project · ESP32 · SolidWorks · URDF</p>
                             <p class="project-desc">A two-wheeled inverted-pendulum robot built around an ESP32 (moving to an ESP32 SuperMini) with a BNO055 IMU for orientation sensing, driving two geared 25GA-370 12&nbsp;V motors through a TB6612FNG driver. I designed the full mechanical assembly (chassis, wheels and motor mounts) in SolidWorks and am building a URDF model to simulate the robot before tuning the real hardware.</p>
@@ -373,11 +426,11 @@
                                 <path d="M4 9h13l2-3h2" />
                                 <path d="M6 9l-1.5 5.5L6 19M9 9l1 5-1.5 5M14 9l-1 5 1.5 5M17 9l1.5 5.5L17 19" />
                             </svg>
-                            <span class="media-label mono">fig.05 · quadruped · sim-to-real</span>
+                            <span class="media-label mono">fig.06 · quadruped · sim-to-real</span>
                             <span class="status-pill mono">In progress</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">05</span>
+                            <span class="project-index mono">06</span>
                             <h3 class="project-title">Robodog · Quadruped Robot</h3>
                             <p class="project-meta">IEEE RAS project · 3D design &amp; simulation phase due 8 Nov 2026</p>
                             <p class="project-desc">Design of a quadruped robot dog trained in a 3D simulation environment to walk, turn and perform basic movements, with the goal of then building the physical robot and transferring the learned behaviour from simulation to reality.</p>
@@ -394,10 +447,10 @@
                                 <path d="M12 2.7S6 9.5 6 14a6 6 0 0 0 12 0c0-4.5-6-11.3-6-11.3Z" />
                                 <path d="M9.5 15.5a2.5 2.5 0 0 0 2.5 2" />
                             </svg>
-                            <span class="media-label mono">fig.06 · lora sx1278 mesh</span>
+                            <span class="media-label mono">fig.07 · lora sx1278 mesh</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">06</span>
+                            <span class="project-index mono">07</span>
                             <h3 class="project-title">Industrial Water Monitoring (IoT + LoRa)</h3>
                             <p class="project-desc">Designed a distributed system using ESP32 nodes and LoRa (SX1278) communication across departments for leak detection and predictive monitoring strategies, complete with RTC timestamped logging.</p>
                             <ul class="tag-list small">
@@ -412,10 +465,10 @@
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
                             </svg>
-                            <span class="media-label mono">fig.07 · esp32 + relays</span>
+                            <span class="media-label mono">fig.08 · esp32 + relays</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">07</span>
+                            <span class="project-index mono">08</span>
                             <h3 class="project-title">ESP32 Smart Control Systems</h3>
                             <p class="project-desc">Developed multiple embedded applications using ESP32 with Wi-Fi connectivity, implementing real-time control via relays and sensor inputs with custom web-based tracking interfaces.</p>
                             <ul class="tag-list small">
@@ -424,27 +477,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card reveal">
-                        <div class="project-media" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="6" y="6" width="12" height="12" rx="1.5" />
-                                <rect x="9.5" y="9.5" width="5" height="5" />
-                                <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4M2 15h4m12-6h4m-4 6h4" />
-                            </svg>
-                            <span class="media-label mono">fig.08 · eagle + pspice</span>
-                        </div>
-                        <div class="project-content">
-                            <span class="project-index mono">08</span>
-                            <h3 class="project-title">PCB DC Motor Speed Control</h3>
-                            <p class="project-desc">Designed and simulated a closed-loop motor control circuit using Eagle PCB and PSpice, incorporating voltage regulation, PWM generation, and precision feedback control.</p>
-                            <ul class="tag-list small">
-                                <li class="tag">PCB Design</li><li class="tag">Control Theory</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
+                    <article class="project-card span-all reveal">
                         <div class="project-media" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -583,8 +616,8 @@
         </div>
     </footer>
 
-    <script src="script.js?v=9"></script>
-    <script src="balance.js?v=9"></script>
+    <script src="script.js?v=11"></script>
+    <script src="balance.js?v=11"></script>
 </body>
 
 </html>
