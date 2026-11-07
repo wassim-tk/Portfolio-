@@ -34,7 +34,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 
 <body>
@@ -79,7 +79,10 @@
         <section id="top" class="hero-section">
             <div class="container hero-content">
                 <div class="hero-text reveal">
-                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Electrical Engineering Student @ ENIT</p>
+                    <div class="hero-id">
+                        <span class="avatar" role="img" aria-label="Portrait of Wassim Toukebri"></span>
+                        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Electrical Engineering Student @ ENIT</p>
+                    </div>
                     <h1 class="hero-title">Wassim<br><span class="accent">Toukebri</span></h1>
                     <p class="hero-terminal" aria-label="Focus areas: FPGA, Embedded, IoT, Edge AI">
                         <span class="prompt">&gt;</span> FPGA · Embedded · IoT · Edge&nbsp;AI<span class="cursor" aria-hidden="true"></span>
@@ -107,15 +110,27 @@
                 </div>
 
                 <div class="hero-visual reveal">
-                    <div class="photo-frame">
-                        <img src="wass.PNG" alt="Portrait of Wassim Toukebri" width="432" height="239">
+                    <!-- Interactive self-balancing robot (driven by balance.js) -->
+                    <div class="lab-frame">
+                        <div class="lab-hud mono" aria-hidden="true">
+                            <span><span class="hud-dot"></span>BALANCE-BOT · LQR</span>
+                            <span id="bot-status">STABLE</span>
+                        </div>
+                        <canvas id="bot-canvas" class="bot-canvas" role="img"
+                            aria-label="Interactive simulation of a two-wheeled self-balancing robot. Push it with the cursor or tap it and the controller brings it back upright to its setpoint."></canvas>
+                        <p class="lab-hint mono" id="bot-hint">↔ push the robot · tap the track to move SP</p>
+                        <div class="lab-graph">
+                            <canvas id="bot-graph" class="graph-canvas" aria-hidden="true"></canvas>
+                            <ul class="graph-legend mono" aria-hidden="true">
+                                <li class="lg-theta">θ tilt <b id="r-theta">0.0°</b></li>
+                                <li class="lg-x">x error <b id="r-x">0.0 cm</b></li>
+                                <li class="lg-u">u motor <b id="r-u">0.0 N</b></li>
+                            </ul>
+                        </div>
                         <span class="corner tl" aria-hidden="true"></span>
                         <span class="corner tr" aria-hidden="true"></span>
                         <span class="corner bl" aria-hidden="true"></span>
                         <span class="corner br" aria-hidden="true"></span>
-                    </div>
-                    <div class="photo-caption mono" aria-hidden="true">
-                        <span>U1 · WT-2026</span><span>ENIT / TUNIS</span>
                     </div>
                 </div>
             </div>
@@ -425,7 +440,8 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=4"></script>
+    <script src="balance.js?v=4"></script>
 </body>
 
 </html>

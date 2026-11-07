@@ -542,16 +542,39 @@ ol {
     gap: 0.75rem;
 }
 
-/* Photo with "viewfinder" corners */
-.hero-visual {
-    justify-self: center;
-    width: min(100%, 380px);
+/* Avatar next to the eyebrow */
+.hero-id {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-bottom: 1.75rem;
 }
 
-.photo-frame {
+.hero-id .eyebrow {
+    margin-bottom: 0;
+}
+
+.avatar {
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+    background: var(--bg-elev) url("wass.PNG") no-repeat;
+    background-size: 182px auto;
+    background-position: -63px -2px;
+}
+
+/* Interactive balancing-robot lab */
+.hero-visual {
+    justify-self: center;
+    width: min(100%, 480px);
+}
+
+.lab-frame {
     position: relative;
-    aspect-ratio: 1 / 1;
-    padding: 12px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background:
@@ -559,14 +582,125 @@ ol {
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 16px 16px,
         var(--bg-elev);
     box-shadow: var(--shadow);
+    padding: 0.9rem 1rem 1rem;
 }
 
-.photo-frame img {
+.lab-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+}
+
+.lab-hud .hud-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 0.45rem;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s infinite;
+}
+
+#bot-status {
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+#bot-status.ok {
+    color: var(--accent);
+    border-color: var(--accent-line);
+}
+
+#bot-status.warn {
+    color: var(--copper);
+    border-color: color-mix(in srgb, var(--copper) 45%, transparent);
+}
+
+#bot-status.bad {
+    color: var(--error);
+    border-color: color-mix(in srgb, var(--error) 45%, transparent);
+}
+
+.bot-canvas {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 20%;
-    border-radius: calc(var(--radius) - 6px);
+    aspect-ratio: 16 / 9;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lab-hint {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0.2rem 0 0.8rem;
+    transition: opacity 0.6s ease;
+}
+
+.lab-hint.dim {
+    opacity: 0.45;
+}
+
+.lab-graph {
+    border-top: 1px dashed var(--border);
+    padding-top: 0.75rem;
+}
+
+.graph-canvas {
+    display: block;
+    width: 100%;
+    height: 92px;
+    border-radius: 6px;
+    background: var(--surface);
+}
+
+.graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 0.8rem;
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.graph-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.graph-legend li::before {
+    content: '';
+    width: 14px;
+    height: 0;
+    border-top: 2px solid;
+}
+
+.graph-legend b {
+    font-weight: 600;
+    color: var(--text);
+    min-width: 5.5ch;
+    font-variant-numeric: tabular-nums;
+}
+
+.lg-theta::before {
+    border-color: var(--accent);
+}
+
+.lg-x::before {
+    border-color: var(--copper);
+}
+
+.lg-u::before {
+    border-top: 1px dashed var(--text-faint) !important;
 }
 
 .corner {
@@ -608,14 +742,6 @@ ol {
     border-bottom-right-radius: 6px;
 }
 
-.photo-caption {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
-}
 
 /* Highlights strip */
 .stats {
@@ -1128,9 +1254,9 @@ ol {
     }
 
     .hero-visual {
-        order: -1;
-        justify-self: start;
-        width: min(100%, 280px);
+        justify-self: stretch;
+        width: 100%;
+        max-width: 560px;
     }
 
     .stats {
@@ -1238,12 +1364,25 @@ ol {
 }
 
 @media (max-width: 520px) {
-    .hero-visual {
-        width: min(100%, 220px);
+    .lab-frame {
+        padding: 0.75rem 0.75rem 0.85rem;
+    }
+
+    .hero-cta {
+        flex-wrap: nowrap;
+        gap: 0.5rem;
     }
 
     .hero-cta .btn {
-        flex: 1 1 auto;
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0 0.8rem;
+        font-size: 0.92rem;
+        white-space: nowrap;
+    }
+
+    .hero-cta .icon-btn-lg {
+        flex: none;
     }
 
     .stats li {
