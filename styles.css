@@ -1015,6 +1015,15 @@ ol {
     border-color: var(--accent-line);
 }
 
+/* an odd card out at the end spans the full row */
+.projects-grid > .project-card:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+}
+
+.projects-grid > .project-card:last-child:nth-child(even) .project-media {
+    aspect-ratio: 16 / 4;
+}
+
 .project-card.featured {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -1066,6 +1075,21 @@ ol {
 .project-media img {
     transition: transform 0.5s var(--ease);
     object-position: 20% 35%;
+}
+
+.status-pill {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--copper);
+    background: color-mix(in srgb, var(--copper) 12%, var(--bg-elev));
+    border: 1px solid color-mix(in srgb, var(--copper) 40%, transparent);
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
 }
 
 .project-meta {
