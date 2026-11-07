@@ -1022,6 +1022,7 @@ ol {
 
 .project-media {
     position: relative;
+    overflow: hidden;
     display: grid;
     place-items: center;
     aspect-ratio: 16 / 7;
@@ -1046,6 +1047,53 @@ ol {
     object-fit: cover;
 }
 
+.project-media.has-img {
+    padding: 0;
+    background: var(--bg-elev);
+}
+
+.project-media.has-img .media-label {
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    color: var(--text-muted);
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+}
+
+.project-card:hover .project-media img {
+    transform: scale(1.03);
+}
+
+.project-media img {
+    transition: transform 0.5s var(--ease);
+    object-position: 20% 35%;
+}
+
+.project-meta {
+    font: 500 0.78rem/1.4 var(--font-mono);
+    color: var(--text-faint);
+    margin: -0.35rem 0 0.75rem;
+}
+
+.project-links {
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-link:hover {
+    color: var(--accent);
+}
+
 .project-card:hover .project-media svg {
     transform: scale(1.08);
 }
@@ -1060,7 +1108,7 @@ ol {
 }
 
 .project-card.featured .project-media {
-    flex: 0 0 42%;
+    flex: 0 0 48%;
     aspect-ratio: auto;
     min-height: 260px;
     border-bottom: 0;
@@ -1345,7 +1393,7 @@ ol {
 
     .project-card.featured .project-media {
         flex: none;
-        aspect-ratio: 16 / 7;
+        aspect-ratio: 16 / 10;
         min-height: 0;
         border-right: 0;
         border-bottom: 1px solid var(--border);

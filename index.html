@@ -34,7 +34,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
 </head>
 
 <body>
@@ -144,7 +144,7 @@
             <!-- Highlights strip -->
             <div class="container">
                 <ul class="stats reveal" aria-label="Highlights">
-                    <li><strong>5</strong><span>technical projects</span></li>
+                    <li><strong>7</strong><span>technical projects</span></li>
                     <li><strong>4</strong><span>MCU / SBC platforms</span></li>
                     <li><strong>3</strong><span>IoT protocols · LoRa · MQTT · Wi-Fi</span></li>
                     <li><strong>ENIT</strong><span>Electrical Eng. · 2025 –</span></li>
@@ -248,46 +248,59 @@
                 </header>
 
                 <div class="projects-grid">
-                    <!-- To use a real photo: replace the <svg> inside .project-media with
-                         <img src="images/robot.jpg" alt="..."> -->
+                    <!-- To use a real photo on any card: replace the <svg> inside .project-media with
+                         <img src="images/your-photo.jpg" alt="..."> -->
                     <article class="project-card featured reveal">
+                        <div class="project-media has-img">
+                            <img src="images/tunibot-admin.jpg" width="1000" height="633" loading="lazy"
+                                alt="TuniBot admin dashboard: live floor map of the restaurant with the robot at its dock, battery gauge, delivery queue and event log">
+                            <span class="media-label mono">fig.01 · admin dashboard · live floor map</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-index mono">01 · Featured</span>
+                            <h3 class="project-title">Autonomous Waiter Robot (CSTAM-TuniBot)</h3>
+                            <p class="project-meta">ROS 2 Jazzy · Gazebo simulation · Web app</p>
+                            <p class="project-desc">A complete ROS 2 stack for an indoor delivery robot in a restaurant:
+                                SLAM mapping, AMCL localization and Nav2 navigation through narrow doorways, a delivery
+                                task queue, pedestrian avoidance, and a simulated 24&nbsp;V Li-ion battery that triggers
+                                automatic return-to-dock. Guests order from a table QR code, even by voice in French,
+                                English or Tunisian derja, and follow the delivery live; staff get an admin dashboard
+                                with the live map.</p>
+                            <ul class="tag-list small">
+                                <li class="tag">ROS 2</li><li class="tag">Nav2</li><li class="tag">SLAM</li><li class="tag">Gazebo</li><li class="tag">Python</li><li class="tag">FastAPI</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/wassim-tk/robot_waiter_simulation" target="_blank" rel="noopener" class="project-link mono">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></svg>
+                                    View code ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
                         <div class="project-media" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="4" y="7" width="16" height="11" rx="2" />
                                 <path d="M12 7V4m-3 0h6M8 12h.01M16 12h.01M9 15h6M2 11v4m20-4v4" />
                             </svg>
-                            <span class="media-label mono">fig.01 · rpi5 ⇄ stm32 ⇄ esp32</span>
-                        </div>
-                        <div class="project-content">
-                            <span class="project-index mono">01 · Featured</span>
-                            <h3 class="project-title">Autonomous Self-Driving Robot</h3>
-                            <p class="project-desc">Designed an autonomous mobile robot integrating Raspberry Pi 5,
-                                STM32, and ESP32. Implemented real-time object detection and navigation using YOLO with
-                                multi-layer communication ensuring low-latency data exchange.</p>
-                            <ul class="tag-list small">
-                                <li class="tag">Edge AI</li><li class="tag">Computer Vision</li><li class="tag">ROS</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-media" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
-                            </svg>
-                            <span class="media-label mono">fig.02 · esp32 + relays</span>
+                            <span class="media-label mono">fig.02 · stm32 ⇄ rpi ⇄ esp32</span>
                         </div>
                         <div class="project-content">
                             <span class="project-index mono">02</span>
-                            <h3 class="project-title">ESP32 Smart Control Systems</h3>
-                            <p class="project-desc">Developed multiple embedded applications using ESP32 with Wi-Fi
-                                connectivity, implementing real-time control via relays and sensor inputs with custom
-                                web-based tracking interfaces.</p>
+                            <h3 class="project-title">OPTIMUS · Smart Autonomous Vehicle</h3>
+                            <p class="project-meta">Team OPTIMUS · IEEE ENIT TRSYP 2.0 challenge</p>
+                            <p class="project-desc">Hybrid autonomous/teleoperated robot. An STM32F407 runs FreeRTOS tasks for PID motor control with encoders, ultrasonic ranging, safety and telemetry; a Raspberry Pi handles OpenCV perception and AI collision-risk prediction; an ESP32 links to a Node-RED dashboard over MQTT. Chassis designed in SolidWorks.</p>
                             <ul class="tag-list small">
-                                <li class="tag">ESP32</li><li class="tag">Wi-Fi</li><li class="tag">Sensors</li>
+                                <li class="tag">STM32</li><li class="tag">FreeRTOS</li><li class="tag">PID</li><li class="tag">Raspberry Pi</li><li class="tag">MQTT</li><li class="tag">Node-RED</li>
                             </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/wassim-tk/OPTIMUS" target="_blank" rel="noopener" class="project-link mono">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></svg>
+                                    View code ↗
+                                </a>
+                            </div>
                         </div>
                     </article>
 
@@ -295,20 +308,18 @@
                         <div class="project-media" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="7" rx="2" />
-                                <rect x="3" y="14" width="18" height="7" rx="2" />
-                                <path d="M7 6.5h.01M7 17.5h.01" />
+                                <path d="M3 3h7v7H3zM14 14h7v7h-7z" />
+                                <path d="M10 6.5h4v11M6.5 10v4H14" />
                             </svg>
-                            <span class="media-label mono">fig.03 · samba / linux</span>
+                            <span class="media-label mono">fig.03 · ld19 lidar + dual cam</span>
                         </div>
                         <div class="project-content">
                             <span class="project-index mono">03</span>
-                            <h3 class="project-title">Raspberry Pi NAS &amp; Remote Access</h3>
-                            <p class="project-desc">Configured a secure Network Attached Storage (NAS) system using
-                                Samba on Linux. Managed disk formatting and enabled secure remote file access across
-                                multiple devices.</p>
+                            <h3 class="project-title">RoboCup Maze-Solving Robot</h3>
+                            <p class="project-meta">ROS 2 Jazzy · micro-ROS</p>
+                            <p class="project-desc">Autonomous maze-solving and target-detection robot. A Raspberry Pi 5 runs DFS maze exploration with an LD19 LiDAR and a dual-camera vision pipeline (a CNN implemented from scratch in NumPy plus ring-colour analysis); it commands an ESP32 over micro-ROS, which drives the motors with BNO055 IMU feedback and PID control.</p>
                             <ul class="tag-list small">
-                                <li class="tag">Raspberry Pi</li><li class="tag">Linux</li><li class="tag">Networking</li>
+                                <li class="tag">ROS 2</li><li class="tag">micro-ROS</li><li class="tag">ESP32</li><li class="tag">LiDAR</li><li class="tag">OpenCV</li><li class="tag">State machine</li>
                             </ul>
                         </div>
                     </article>
@@ -325,11 +336,27 @@
                         <div class="project-content">
                             <span class="project-index mono">04</span>
                             <h3 class="project-title">Industrial Water Monitoring (IoT + LoRa)</h3>
-                            <p class="project-desc">Designed a distributed system using ESP32 nodes and LoRa (SX1278)
-                                communication across departments for leak detection and predictive monitoring
-                                strategies, complete with RTC timestamped logging.</p>
+                            <p class="project-desc">Designed a distributed system using ESP32 nodes and LoRa (SX1278) communication across departments for leak detection and predictive monitoring strategies, complete with RTC timestamped logging.</p>
                             <ul class="tag-list small">
                                 <li class="tag">IoT</li><li class="tag">LoRa</li><li class="tag">ESP32</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+                            </svg>
+                            <span class="media-label mono">fig.05 · esp32 + relays</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-index mono">05</span>
+                            <h3 class="project-title">ESP32 Smart Control Systems</h3>
+                            <p class="project-desc">Developed multiple embedded applications using ESP32 with Wi-Fi connectivity, implementing real-time control via relays and sensor inputs with custom web-based tracking interfaces.</p>
+                            <ul class="tag-list small">
+                                <li class="tag">ESP32</li><li class="tag">Wi-Fi</li><li class="tag">Sensors</li>
                             </ul>
                         </div>
                     </article>
@@ -342,19 +369,38 @@
                                 <rect x="9.5" y="9.5" width="5" height="5" />
                                 <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4M2 15h4m12-6h4m-4 6h4" />
                             </svg>
-                            <span class="media-label mono">fig.05 · eagle + pspice</span>
+                            <span class="media-label mono">fig.06 · eagle + pspice</span>
                         </div>
                         <div class="project-content">
-                            <span class="project-index mono">05</span>
+                            <span class="project-index mono">06</span>
                             <h3 class="project-title">PCB DC Motor Speed Control</h3>
-                            <p class="project-desc">Designed and simulated a closed-loop motor control circuit using
-                                Eagle PCB and PSpice, incorporating voltage regulation, PWM generation, and precision
-                                feedback control.</p>
+                            <p class="project-desc">Designed and simulated a closed-loop motor control circuit using Eagle PCB and PSpice, incorporating voltage regulation, PWM generation, and precision feedback control.</p>
                             <ul class="tag-list small">
                                 <li class="tag">PCB Design</li><li class="tag">Control Theory</li>
                             </ul>
                         </div>
                     </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-media" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="7" rx="2" />
+                                <rect x="3" y="14" width="18" height="7" rx="2" />
+                                <path d="M7 6.5h.01M7 17.5h.01" />
+                            </svg>
+                            <span class="media-label mono">fig.07 · samba / linux</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-index mono">07</span>
+                            <h3 class="project-title">Raspberry Pi NAS &amp; Remote Access</h3>
+                            <p class="project-desc">Configured a secure Network Attached Storage (NAS) system using Samba on Linux. Managed disk formatting and enabled secure remote file access across multiple devices.</p>
+                            <ul class="tag-list small">
+                                <li class="tag">Raspberry Pi</li><li class="tag">Linux</li><li class="tag">Networking</li>
+                            </ul>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -474,8 +520,8 @@
         </div>
     </footer>
 
-    <script src="script.js?v=6"></script>
-    <script src="balance.js?v=6"></script>
+    <script src="script.js?v=7"></script>
+    <script src="balance.js?v=7"></script>
 </body>
 
 </html>
