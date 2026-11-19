@@ -562,9 +562,7 @@ ol {
     border-radius: 50%;
     border: 2px solid var(--accent);
     box-shadow: 0 0 0 4px var(--accent-soft);
-    background: var(--bg-elev) url("wass.PNG") no-repeat;
-    background-size: 182px auto;
-    background-position: -63px -2px;
+    background: var(--bg-elev) url("images/avatar.jpg") center / cover no-repeat;
 }
 
 /* Interactive balancing-robot lab */
@@ -874,7 +872,7 @@ ol {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 30%;
+    object-position: 50% 20%;
     border-radius: calc(var(--radius) - 5px);
 }
 
